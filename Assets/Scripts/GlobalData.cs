@@ -18,6 +18,7 @@ public class GlobalData: MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(this);
+            DataSaver.Load();  // Loading data from saved file
         }
         else
         {

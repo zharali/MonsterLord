@@ -13,6 +13,6 @@ public class NameTransfer : MonoBehaviour
     public void StoreName()
     {
         theName.text = inputField.text;
-        textDisplay.text = "Welcome " + theName + " to MonsterLord!";
+        textDisplay.text = "Welcome " + theName.text + " to MonsterLord!";
     }
 }

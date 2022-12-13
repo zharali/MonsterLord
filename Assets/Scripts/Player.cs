@@ -4,21 +4,40 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    // Global parameter variable
+    public static uint ScoreFrequencyForBoss = 100;
+
+
 	public float playerSpeed;
 	public int maxHealth = 100;
-	public int currentHealth;
+	public long currentHealth;
+    public ulong atk;
+    public ulong score;
+    public uint gameLevel;
+    public uint bossBeaten;
     public HealthBar healthBar;
 	private Rigidbody2D rb;
 	private Vector2 playerDirection;
-	
+
+    #region Singleton
+    public static Player instance; 
     // Start is called before the first frame update
     void Start()
     {
-    	currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        // Singleton shenanigans
+        if (instance == null) instance = this;
+        else Destroy(this.gameObject);
+
+
+        currentHealth = StatFunctions.Health(GlobalData.instance.data.characterLevel); // Follows the HP(lvl) equation
+        healthBar.SetMaxHealth(currentHealth);
+        atk = StatFunctions.Attack(currentHealth);  // HP(lvl) / number of hits to beat a boss
+        score = 0;
+        gameLevel = 1;
+        bossBeaten = 0;
         rb = GetComponent<Rigidbody2D>();
     }
-
+    #endregion
     // Update is called once per frame
     void Update()
     {
@@ -36,13 +55,38 @@ public class Player : MonoBehaviour
     {
     	if(collision.tag == "Obstacle")
     	{
-    		TakeDamage(10); 	
+    		TakeDamage(gameLevel * 10); // Will need to be fine-tuned	
     	}
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(long damage)
     {
         currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        healthBar.SetHealth(currentHealth);  // Might need to be changed if we don't want to have a negative health bar
+
+        // Death condition - End game
+        if (currentHealth <= 0)
+        {
+            // Transform the score into xp for our character
+            ulong currentXp = GlobalData.instance.data.levelxp;
+            uint currentLevel = GlobalData.instance.data.characterLevel;
+
+            ulong totalXpEarned = score / 10;  // To be changed or fine-tuned
+
+            ulong levelUpRequirement = StatFunctions.XpToLevelUp(currentLevel);
+
+            while (currentXp + totalXpEarned > levelUpRequirement)  // While we level up
+            {
+                totalXpEarned -= levelUpRequirement - currentXp;  // XP diff
+                levelUpRequirement = StatFunctions.XpToLevelUp(++currentLevel);
+                currentXp = 0;
+            }
+            // Saving final data to the global instance
+            GlobalData.instance.data.levelxp = totalXpEarned;
+            GlobalData.instance.data.characterLevel = currentLevel;
+
+            // Saving score if it beats the highscore
+            if (score > GlobalData.instance.data.highscore) GlobalData.instance.data.highscore = score;
+        }
     }
 }

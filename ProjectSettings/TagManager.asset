@@ -15,13 +15,13 @@ TagManager:
   - UI
   - 
   - 
+  - 
+  - 
+  - Enemies
+  - 
+  - 
+  - 
   - Background Image
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 
@@ -42,4 +42,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2005011051
+    locked: 0
+  - name: Enemies
+    uniqueID: 235589585
+    locked: 0
+  - name: Player
+    uniqueID: 3493682761
+    locked: 0
+  - name: Interface
+    uniqueID: 3981021953
     locked: 0

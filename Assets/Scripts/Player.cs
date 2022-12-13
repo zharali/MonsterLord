@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public ulong score;
     public uint gameLevel;
     public uint bossBeaten;
+    public GameObject gameOverPanel;
     public HealthBar healthBar;
 	private Rigidbody2D rb;
 	private Vector2 playerDirection;
@@ -67,6 +68,8 @@ public class Player : MonoBehaviour
         // Death condition - End game
         if (currentHealth <= 0)
         {
+        	// Display GAME OVER panel: GameOver class does this.
+        	
             // Transform the score into xp for our character
             ulong currentXp = GlobalData.instance.data.levelxp;
             uint currentLevel = GlobalData.instance.data.characterLevel;

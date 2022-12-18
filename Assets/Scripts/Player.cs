@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
         gameLevel = 1;
         bossBeaten = 0;
         rb = GetComponent<Rigidbody2D>();
+        Time.timeScale = 1f;
     }
     #endregion
     // Update is called once per frame

@@ -17,14 +17,16 @@ public class GameOver : MonoBehaviour
         }
     }
     
-    public void Restart()
+    public void Restart(int sceneID)
     {
+    	gameOver.SetActive(false);
     	Time.timeScale = 1f;
-    	SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    	SceneManager.LoadScene(sceneID);
     }
     
     public void Home(int sceneID)
 	{
+		gameOver.SetActive(false);
 		Time.timeScale = 1f;
 		SceneManager.LoadScene(sceneID);
 	}

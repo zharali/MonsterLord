@@ -787,6 +787,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 328314226}
   scoreMultiplier: 7
+  finalScoreText: {fileID: 531854984}
+  xpText: {fileID: 2037815056}
 --- !u!114 &328314226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1572,6 +1574,7 @@ GameObject:
   - component: {fileID: 771735919}
   - component: {fileID: 771735921}
   - component: {fileID: 771735920}
+  - component: {fileID: 771735922}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1591,15 +1594,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8f20fa361fd1936953727f3b5ae47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 12
+  playerSpeed: 10
   maxHealth: 100
   currentHealth: 0
   atk: 0
+  scoreManager: {fileID: 328314225}
   score: 0
   gameLevel: 0
   bossBeaten: 0
-  gameOverPanel: {fileID: 0}
+  gameOverPanel: {fileID: 1444926363}
   healthBar: {fileID: 1672537570}
+  sampleWindow: 64
 --- !u!50 &771735917
 Rigidbody2D:
   serializedVersion: 4
@@ -1731,6 +1736,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &771735922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771735915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255f417a59b0ce551b7276f73b94aa7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1010037396
 GameObject:
   m_ObjectHideFlags: 0

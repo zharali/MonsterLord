@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour
 	private uint currentLevel = 1;
 	private uint upLevelScore = 300;
 	private float gameSpeed = 1f;
+	public MusicManager musicManager;
 	
 	void Start()
 	{
@@ -30,7 +31,7 @@ public class ScoreManager : MonoBehaviour
     {
     	if(GameObject.FindGameObjectWithTag("Player") != null)
     	{
-    		//maybe some things here could be moved so that they are only calculated upong dying.
+    		//maybe some things here could be moved so that they are only calculated upon dying.
     		score += scoreMultiplier * Time.deltaTime;
     		scoreText.text = "Score: " + ((int)score).ToString();    	
     		finalScoreText.text = "Score: " + ((int)score).ToString();   
@@ -71,9 +72,13 @@ public class ScoreManager : MonoBehaviour
     
     private void UpLevel()
     {
+    	//maybe here call boss or something (?)
     	currentLevel += 1;
     	currentLevelText.text = "Lv: " + currentLevel.ToString();
-    	gameSpeed = 1 + (float) Math.Log(currentLevel, 2); //this function seems alright for the speed progression.
+    	//this function seems alright for the speed progression.
+    	gameSpeed = 1 + (float) Math.Log(currentLevel, 2);
+    	//change background music
+    	musicManager.PlayNextBGM();
     	
     	//Time.timeScale = gameSpeed; 
     	//better not to touch timeScale, i think it would mess up too many things XD

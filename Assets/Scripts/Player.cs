@@ -8,7 +8,7 @@ using UnityEngine.Windows.Speech;
 public class Player : MonoBehaviour
 {
     // Global parameter variable
-    public static uint ScoreFrequencyForBoss = 100;
+    public static uint ScoreFrequencyForBoss = 100; //
 
 
 	public float playerSpeed;

@@ -16,9 +16,8 @@ public class Player : MonoBehaviour
 	public long currentHealth;
     public ulong atk;
     public ScoreManager scoreManager;
-    public ulong score;
-    public uint gameLevel;
-    public uint bossBeaten;
+    //public ulong score; //retrieved from ScoreManager
+    public uint bossBeaten; //
     public GameObject gameOverPanel;
     public HealthBar healthBar;
 	private Rigidbody2D rb;
@@ -45,8 +44,8 @@ public class Player : MonoBehaviour
         currentHealth = StatFunctions.Health(GlobalData.instance.data.characterLevel); // Follows the HP(lvl) equation
         healthBar.SetMaxHealth(currentHealth);
         atk = StatFunctions.Attack(currentHealth);  // HP(lvl) / number of hits to beat a boss
-        score = 0;
-        gameLevel = 1;
+        //score = 0; //handled in ScoreManager
+        //gameLevel = 1; //handled in LevelManager
         bossBeaten = 0;
         rb = GetComponent<Rigidbody2D>();
         
@@ -141,7 +140,7 @@ public class Player : MonoBehaviour
     {
     	if(collision.tag == "Obstacle")
     	{
-    		TakeDamage(gameLevel * 10); // Will need to be fine-tuned	
+    		TakeDamage(scoreManager.GetCurrentLevel() * 10); // Will need to be fine-tuned	
     	}
     }
 
@@ -160,7 +159,8 @@ public class Player : MonoBehaviour
             uint currentLevel = GlobalData.instance.data.characterLevel;
 
 			//i think its easier to have score and XP in the ScoreManager script and access it.
-			score = Convert.ToUInt64(scoreManager.GetScore());
+			//(i was already using that script for showing scores in the UI).
+			ulong score = Convert.ToUInt64(scoreManager.GetScore());
             ulong totalXpEarned = Convert.ToUInt64(scoreManager.GetXp());  // To be changed or fine-tuned
 
             ulong levelUpRequirement = StatFunctions.XpToLevelUp(currentLevel);

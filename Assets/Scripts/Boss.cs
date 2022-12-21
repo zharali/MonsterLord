@@ -8,6 +8,8 @@ public class Boss : MonoBehaviour
     public float timer; // In seconds
     public ulong level;
     public long currentHealth;
+    public float bossDefeatedScore = 25;
+    public ScoreManager scoreManager;
 
     // Boss should have a health bar and a timer bar
     public HealthBar healthBar;
@@ -44,7 +46,8 @@ public class Boss : MonoBehaviour
         {
             // We can award a certain amount of score
 
-            Player.instance.score += 25;
+            //Player.instance.score += 25;
+            scoreManager.UpScore(bossDefeatedScore);
 
             Player.instance.bossBeaten++;
             // Then self destruction

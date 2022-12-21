@@ -7,22 +7,40 @@ using System;
 public class ScoreManager : MonoBehaviour
 {
 	public Text scoreText;
+	public Text finalScoreText;
+	public Text xpText;
+	public Text currentLevelText;
+	
 	private float score;
 	private float xp;
 	public float scoreMultiplier;
-	public Text finalScoreText;
-	public Text xpText;
-
+	private uint currentLevel = 1;
+	private uint upLevelScore = 300;
+	private float gameSpeed = 1f;
+	
+	void Start()
+	{
+		currentLevel = 1;
+		gameSpeed = 1f;
+	}
+	
+	
     // Update is called once per frame
     void Update()
     {
     	if(GameObject.FindGameObjectWithTag("Player") != null)
     	{
+    		//maybe some things here could be moved so that they are only calculated upong dying.
     		score += scoreMultiplier * Time.deltaTime;
-    		scoreText.text = ((int)score).ToString();    	
+    		scoreText.text = "Score: " + ((int)score).ToString();    	
     		finalScoreText.text = "Score: " + ((int)score).ToString();   
     		xp = score / 10;
     		xpText.text = "XP: " + ((int)xp).ToString();   
+    	}
+    	
+    	if(score > (currentLevel * upLevelScore)) 
+    	{
+    		UpLevel();
     	}
     }
     
@@ -34,5 +52,30 @@ public class ScoreManager : MonoBehaviour
     public float GetXp()
     {
     	return xp;
+    }
+    
+    public void UpScore(float up)
+    {
+    	score += up;
+    }
+    
+    public float GetGameSpeed()
+    {
+    	return gameSpeed;
+    }
+    
+    public uint GetCurrentLevel()
+    {
+    	return currentLevel;
+    }
+    
+    private void UpLevel()
+    {
+    	currentLevel += 1;
+    	currentLevelText.text = "Lv: " + currentLevel.ToString();
+    	gameSpeed = 1 + (float) Math.Log(currentLevel, 2); //this function seems alright for the speed progression.
+    	
+    	//Time.timeScale = gameSpeed; 
+    	//better not to touch timeScale, i think it would mess up too many things XD
     }
 }

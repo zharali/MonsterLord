@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 //to use if we want sliders to select the color 
-public class SelectColor : MonoBehaviour
+public class SelectColor : MonoBehaviour 
 {
     [Header("Color Values")]
     public float redAmount;
@@ -21,6 +21,7 @@ public class SelectColor : MonoBehaviour
 
     //grab the material from the renderer and change the color properties of the material
     public List<Renderer> rendererList = new List<Renderer>();
+
 
     //if we want to customize the color, dont need it here 
     public void UpdateSliders()
@@ -40,4 +41,6 @@ public class SelectColor : MonoBehaviour
             rendererList[i].material.SetColor("_Color", currentColor);
         }
     }
+
+   
 }

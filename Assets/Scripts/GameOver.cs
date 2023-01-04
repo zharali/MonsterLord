@@ -6,15 +6,26 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
 	public GameObject gameOver;
+	public MusicManager musicManager;
 
-    // Update is called once per frame
-    void Update()
+    // Now player does this. calls ShowGameOver
+    /*void Update()
     {
         if(Player.instance.currentHealth <= 0)
         {
         	gameOver.SetActive(true);
         	Time.timeScale = 0f;
+        	musicManager.PauseBGM();
+        	musicManager.PlayGameOver();
         }
+    }*/
+    
+    public void ShowGameOver()
+    {
+    	gameOver.SetActive(true);
+        Time.timeScale = 0f;
+        musicManager.PauseBGM();
+        musicManager.PlayGameOver();   
     }
     
     public void Restart(int sceneID)

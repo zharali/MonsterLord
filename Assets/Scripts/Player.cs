@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
 
 	public float playerSpeed;
-	public int maxHealth = 100;
+	//public int maxHealth; //could be used for healing items/events.
 	public long currentHealth;
     public ulong atk;
     public ScoreManager scoreManager;
@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 	private Vector2 playerDirection;
 	public int sampleWindow = 64;
 	//public AudioSource audioSource;
+	public GameOver gameOver;
 	private AudioClip microphoneClip;
 	private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
 	private KeywordRecognizer keywordRecognizer;
@@ -51,8 +52,8 @@ public class Player : MonoBehaviour
         
         //for voice recognition
         MicrophoneToAudioClip(); //start the microphone
-        keywordActions.Add("hello", MoveLeft); //add words and methods to dictionary
-        keywordActions.Add("turn left", MoveRight);
+        keywordActions.Add("left", MoveLeft); //add words and methods to dictionary
+        keywordActions.Add("right", MoveRight);
         
         keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += OnKeywordsRecognized;
@@ -153,7 +154,7 @@ public class Player : MonoBehaviour
         if (currentHealth <= 0)
         {
         	// Display GAME OVER panel: GameOver class does this.
-        	
+        	gameOver.ShowGameOver();
             // Transform the score into xp for our character
             ulong currentXp = GlobalData.instance.data.levelxp;
             uint currentLevel = GlobalData.instance.data.characterLevel;

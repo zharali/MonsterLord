@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: sky01
+  m_Name: background
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -40,8 +40,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: bf11db461fcab4e49bcf831cdeaa3f3d, type: 3}
-        m_Scale: {x: 0.84, y: 1.63}
+        m_Texture: {fileID: 2800000, guid: 9f1cb106f87622378a42cd19c29e0f05, type: 3}
+        m_Scale: {x: 1, y: 1.8}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}

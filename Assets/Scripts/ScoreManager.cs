@@ -18,6 +18,7 @@ public class ScoreManager : MonoBehaviour
 	private uint upLevelScore = 300;
 	private float gameSpeed = 1f;
 	public MusicManager musicManager;
+	public Scrollingbckgd bg;
 	
 	void Start()
 	{
@@ -79,6 +80,7 @@ public class ScoreManager : MonoBehaviour
     	gameSpeed = 1 + (float) Math.Log(currentLevel, 2);
     	//change background music
     	musicManager.PlayNextBGM();
+    	bg.NextBg();
     	
     	//Time.timeScale = gameSpeed; 
     	//better not to touch timeScale, i think it would mess up too many things XD

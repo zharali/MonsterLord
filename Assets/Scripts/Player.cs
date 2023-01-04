@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
 	public int sampleWindow = 64;
 	//public AudioSource audioSource;
 	public GameOver gameOver;
+	public MusicManager musicManager;
 	private AudioClip microphoneClip;
 	private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
 	private KeywordRecognizer keywordRecognizer;
@@ -149,6 +150,7 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);  // Might need to be changed if we don't want to have a negative health bar
+        musicManager.PlayDamageTaken();
 
         // Death condition - End game
         if (currentHealth <= 0)

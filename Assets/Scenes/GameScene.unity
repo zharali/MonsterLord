@@ -2612,6 +2612,7 @@ MonoBehaviour:
   healthBar: {fileID: 1672537570}
   sampleWindow: 64
   gameOver: {fileID: 1124241526}
+  musicManager: {fileID: 85539700}
 --- !u!50 &771735917
 Rigidbody2D:
   serializedVersion: 4

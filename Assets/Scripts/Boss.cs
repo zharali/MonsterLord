@@ -8,18 +8,21 @@ public class Boss : MonoBehaviour
     public float timer; // In seconds
     public ulong level;
     public long currentHealth;
-    public float bossDefeatedScore = 25;
-    public ScoreManager scoreManager;
+    public ulong bossDefeatedScore = 10;  // Also modify Boss prefab
 
-    // Boss should have a health bar and a timer bar
-    public HealthBar healthBar;
+    public HealthBar bossBar;
+    public HealthBar timerBar; // Not really a health bar but has the same properties
+
     // Start is called before the first frame update
     void Start()
     {
-        timer = 15; // seconds
+        timer = 5; // seconds
         level = Player.instance.bossBeaten + 1;
         currentHealth = StatFunctions.BossHealth(level);
-        // healthBar.SetMaxHealth(currentHealth);
+        bossBar = Instantiate(bossBar, GameObject.Find("UI").transform);
+        bossBar.SetMaxHealth(currentHealth);
+        timerBar = Instantiate(timerBar, GameObject.Find("UI").transform);
+        timerBar.SetMaxHealth((long)timer);
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class Boss : MonoBehaviour
         if (timer > 0)
         {
             timer -= Time.deltaTime;
+            timerBar.SetHealth((long)timer);
             // TODO : decreate the timer bar
         } else  // end of the timer, we kill the character
         {
@@ -39,19 +43,20 @@ public class Boss : MonoBehaviour
     public void TakeDamage(long damage)
     {
         currentHealth -= damage;
-        //healthBar.SetHealth(currentHealth);
-        
+        bossBar.SetHealth(currentHealth);
         // If the boss has been defeated
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             // We can award a certain amount of score
 
             //Player.instance.score += 25;
-            scoreManager.UpScore(bossDefeatedScore);
+            Player.instance.AddScore(bossDefeatedScore);
 
             Player.instance.bossBeaten++;
             // Then self destruction
-            //Destroy(this.gameObject);
+            Destroy(bossBar.gameObject);
+            Destroy(timerBar.gameObject);
+            SpawnBoss.DestroyBoss();
         }
     }
 }

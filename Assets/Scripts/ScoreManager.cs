@@ -30,7 +30,7 @@ public class ScoreManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-    	if(GameObject.FindGameObjectWithTag("Player") != null)
+    	if(GameObject.FindGameObjectWithTag("Player") != null && !SpawnBoss.HasBossSpawned) // If the boss has spawned, then it shouldn't increase the score
     	{
     		//maybe some things here could be moved so that they are only calculated upon dying.
     		score += scoreMultiplier * Time.deltaTime;
@@ -49,6 +49,11 @@ public class ScoreManager : MonoBehaviour
     public float GetScore()
     {
     	return score;
+    }
+
+    public void ResetScore()
+    {
+        score = 0f;
     }
     
     public float GetXp()

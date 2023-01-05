@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+#if UNITY_STANDALONE
 using UnityEngine.Windows.Speech;
-
+#endif
 public class Player : MonoBehaviour
 {
-    // Global parameter variable
-    public static uint ScoreFrequencyForBoss = 100; //
-
 
 	public float playerSpeed;
 	//public int maxHealth; //could be used for healing items/events.
@@ -28,20 +26,20 @@ public class Player : MonoBehaviour
 	public MusicManager musicManager;
 	private AudioClip microphoneClip;
 	private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
+#if UNITY_STANDALONE
 	private KeywordRecognizer keywordRecognizer;
+#endif
 
-    #region Singleton
+#region Singleton
     public static Player instance; 
     // Start is called before the first frame update
     void Start()
     {
-    	
         //resume time. gameover was messing this up.
         Time.timeScale = 1f;
         // Singleton shenanigans
         if (instance == null) instance = this;
         else Destroy(this.gameObject);
-
 
         currentHealth = StatFunctions.Health(GlobalData.instance.data.characterLevel); // Follows the HP(lvl) equation
         healthBar.SetMaxHealth(currentHealth);
@@ -50,7 +48,7 @@ public class Player : MonoBehaviour
         //gameLevel = 1; //handled in LevelManager
         bossBeaten = 0;
         rb = GetComponent<Rigidbody2D>();
-        
+#if UNITY_STANDALONE
         //for voice recognition
         MicrophoneToAudioClip(); //start the microphone
         keywordActions.Add("left", MoveLeft); //add words and methods to dictionary
@@ -71,19 +69,35 @@ public class Player : MonoBehaviour
 		while (!(Microphone.GetPosition(null) > 0)) { }
 		audio.Play();
 		*/
-		
+#endif
     }
-    #endregion
-    
+#endregion
     
     // Update is called once per frame
     void Update()
     {
-    	// Not moving vertically, only horizontally (could change in the future?).
-        float directionX = Input.GetAxisRaw("Horizontal");
-        playerDirection = new Vector2(directionX, 0).normalized;
+        // Different controls modes : if the boss is there or not (and not paused)
+        if (SpawnBoss.HasBossSpawned && Time.timeScale != 0f)
+        { // Tap or click to deal damage
+#if UNITY_ANDROID
+            if (Input.GetTouch(0).tapCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                SpawnBoss.GetBossInstance().TakeDamage((long) atk);
+            }
+#elif UNITY_STANDALONE
+            if (Input.GetMouseButtonDown(0))
+            {
+                SpawnBoss.GetBossInstance().TakeDamage((long)atk);
+            }
+#endif
+        } else
+        {
+            // Not moving vertically, only horizontally (could change in the future?).
+            float directionX = Input.GetAxisRaw("Horizontal");
+            playerDirection = new Vector2(directionX, 0).normalized;
+        }
     }
-    
+#if UNITY_STANDALONE
     public void MicrophoneToAudioClip()
     {
     	string microphoneName = Microphone.devices[0];
@@ -132,7 +146,7 @@ public class Player : MonoBehaviour
         playerDirection = new Vector2(1, 0).normalized * loudness;
     
     }
-    
+#endif
     void FixedUpdate()
     {
     	rb.velocity = new Vector2(playerDirection.x * playerSpeed , 0);
@@ -146,6 +160,11 @@ public class Player : MonoBehaviour
     	}
     }
 
+    public void AddScore(ulong score)
+    {
+        scoreManager.UpScore(score);
+    }
+
     public void TakeDamage(long damage)
     {
         currentHealth -= damage;
@@ -155,8 +174,8 @@ public class Player : MonoBehaviour
         // Death condition - End game
         if (currentHealth <= 0)
         {
-        	// Display GAME OVER panel: GameOver class does this.
-        	gameOver.ShowGameOver();
+            // Display GAME OVER panel: GameOver class does this.
+            gameOver.ShowGameOver();
             // Transform the score into xp for our character
             ulong currentXp = GlobalData.instance.data.levelxp;
             uint currentLevel = GlobalData.instance.data.characterLevel;

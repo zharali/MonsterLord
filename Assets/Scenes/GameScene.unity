@@ -1308,6 +1308,7 @@ GameObject:
   m_Component:
   - component: {fileID: 256113634}
   - component: {fileID: 256113633}
+  - component: {fileID: 256113635}
   m_Layer: 10
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -1348,6 +1349,21 @@ Transform:
   m_Father: {fileID: 451389698}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &256113635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256113632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b4bcd5e2d542a4786848343075ba43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossPrefab: {fileID: 8852977194382444302, guid: 40ef34d8db98db54d9af99222f007d3f,
+    type: 3}
+  ScoreManager: {fileID: 1261853528}
 --- !u!1 &328314223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,9 +1615,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1672537567}
   - {fileID: 1261853525}
   - {fileID: 1299004351}
+  - {fileID: 1672537567}
   - {fileID: 1941795162}
   m_Father: {fileID: 1736875517}
   m_RootOrder: 4
@@ -3454,7 +3470,7 @@ RectTransform:
   - {fileID: 328314224}
   - {fileID: 629094937}
   m_Father: {fileID: 470370080}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -3553,7 +3569,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 470370080}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4409,7 +4425,7 @@ PrefabInstance:
     - target: {fileID: 3200969814135974344, guid: 0a0e1c667ee59f44ea4ce49746b2182c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3200969814135974344, guid: 0a0e1c667ee59f44ea4ce49746b2182c,
         type: 3}

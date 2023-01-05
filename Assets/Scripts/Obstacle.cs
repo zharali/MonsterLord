@@ -32,7 +32,12 @@ public class Obstacle : MonoBehaviour
     {
     	if(collision.tag == "Border")
     	{
-    		Destroy(this.gameObject);    	
+            Destroy(this.gameObject);
     	}
+    }
+
+    private void OnDestroy()
+    {
+        SpawnObstacles.RemoveObstacle(this.gameObject);
     }
 }

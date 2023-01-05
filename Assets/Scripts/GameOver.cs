@@ -22,23 +22,26 @@ public class GameOver : MonoBehaviour
     
     public void ShowGameOver()
     {
-    	gameOver.SetActive(true);
+        gameOver.SetActive(true);
         Time.timeScale = 0f;
+        SpawnBoss.DestroyBoss(); // Otherwise if the game is restarted, the boss will spawn
         musicManager.PauseBGM();
-        musicManager.PlayGameOver();   
+        musicManager.PlayGameOver();
     }
     
     public void Restart(int sceneID)
     {
     	gameOver.SetActive(false);
+        Player.instance.scoreManager.ResetScore(); // To avoid boss respawning
     	Time.timeScale = 1f;
-    	SceneManager.LoadScene(sceneID);
+        SceneManager.LoadScene(sceneID);
     }
-    
+
     public void Home(int sceneID)
 	{
 		gameOver.SetActive(false);
-		Time.timeScale = 1f;
+        Player.instance.scoreManager.ResetScore();
+        Time.timeScale = 1f;
 		SceneManager.LoadScene(sceneID);
-	}
+    }
 }

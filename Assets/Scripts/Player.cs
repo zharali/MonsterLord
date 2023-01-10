@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
 	private AudioClip microphoneClip;
 	private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
 
+    public GameObject character; 
+
 
 #if UNITY_STANDALONE
 	private KeywordRecognizer keywordRecognizer;
@@ -42,6 +44,9 @@ public class Player : MonoBehaviour
         // Singleton shenanigans
         if (instance == null) instance = this;
         else Destroy(this.gameObject);
+
+        //Vector3 startingPosition = new Vector3(608.06, -648, 44.125); // or any other desired position
+        character = Instantiate(GlobalData.instance.data.characterStyle, Quaternion.identity);
 
         currentHealth = StatFunctions.Health(GlobalData.instance.data.characterLevel); // Follows the HP(lvl) equation
         healthBar.SetMaxHealth(currentHealth);
@@ -203,5 +208,6 @@ public class Player : MonoBehaviour
             if (score > GlobalData.instance.data.highscore) GlobalData.instance.data.highscore = score;
         }
     }
+
 
 }

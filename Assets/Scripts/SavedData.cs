@@ -10,4 +10,9 @@ public class SavedData
     public ulong levelxp = 0;
     public ushort spriteId = 0;
     public ulong highscore = 0;
+
+    public GameObject skinColor;
+    public GameObject eyesStyle;
+    public GameObject mouthStyle;
+    public GameObject characterStyle;
 }

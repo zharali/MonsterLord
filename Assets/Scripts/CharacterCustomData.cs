@@ -7,45 +7,24 @@ using UnityEditor;
 public class CharacterCustomData : MonoBehaviour
 {
 
-    public GameObject skinColor;
-    public GameObject eyesStyle;
-    public GameObject mouthStyle;
-    public GameObject characterStyle;
-    CharacterCustomizationData customizationData = ScriptableObject.CreateInstance<CharacterCustomizationData>();
-
-
     public void SetCharacterStyle(GameObject character)
     {
-        characterStyle = character;
-        customizationData.characterStyle = characterStyle;
+        GlobalData.instance.data.characterStyle = character;
     }
 
-    public GameObject SetSkinColor(GameObject skin)
+    public void SetSkinColor(GameObject skin)
     {
-        skinColor = skin;
-        return skin;
+        GlobalData.instance.data.skinColor = skin;
     }
 
-    public GameObject SetEyesStyle(GameObject eyes)
+    public void SetEyesStyle(GameObject eyes)
     {
-        eyesStyle = eyes;
-        return eyes;
+        GlobalData.instance.data.eyesStyle = eyes;
     }
 
-    public GameObject SetMouthStyle(GameObject mouth)
+    public void SetMouthStyle(GameObject mouth)
     {
-        mouthStyle = mouth;
-        return mouth;
+        GlobalData.instance.data.mouthStyle = mouth;
     }
-
-    public void CreateData()
-    {
-       
-        //customizationData.skinColor = skinColor;
-        //customizationData.eyesStyle = eyesStyle;
-        //customizationData.mouthStyle = mouthStyle;
-        AssetDatabase.CreateAsset(customizationData, "Assets/CharacterCustomizationData.asset");
-        AssetDatabase.SaveAssets();
-    }
-    
+ 
 }

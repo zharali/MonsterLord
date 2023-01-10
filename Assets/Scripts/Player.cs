@@ -26,11 +26,13 @@ public class Player : MonoBehaviour
 	public MusicManager musicManager;
 	private AudioClip microphoneClip;
 	private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
+
+
 #if UNITY_STANDALONE
 	private KeywordRecognizer keywordRecognizer;
 #endif
 
-#region Singleton
+    #region Singleton
     public static Player instance; 
     // Start is called before the first frame update
     void Start()
@@ -201,4 +203,5 @@ public class Player : MonoBehaviour
             if (score > GlobalData.instance.data.highscore) GlobalData.instance.data.highscore = score;
         }
     }
+
 }

@@ -6,7 +6,7 @@ public class CharacterPersistent : MonoBehaviour
 {
     public bool keepObjectPersistent = true;
 
-    void Awake()
+    public void Awake()
     {
         if (keepObjectPersistent)
         {

@@ -5,12 +5,13 @@ using UnityEngine;
 public class SpawnObstacles : MonoBehaviour
 {
 	public GameObject obstacle;
+	private float obstacleSpeed = -2;
     private static List<GameObject> obstacles = new List<GameObject>();
 	public float minX;
 	public float maxX;
 	public float minY;
 	public float maxY;
-	public float timeBetweenSpawn;
+	private float timeBetweenSpawn = 3;
 	private float spawnTime;
 
     // Update is called once per frame
@@ -28,8 +29,9 @@ public class SpawnObstacles : MonoBehaviour
     {
     	float randomX = Random.Range(minX, maxX);
     	float randomY = Random.Range(minY, maxY);
-    	
-    	obstacles.Add(Instantiate(obstacle, transform.position + new Vector3(randomX, randomY, 0), transform.rotation));
+    	GameObject instance = Instantiate(obstacle, transform.position + new Vector3(randomX, randomY, 0), transform.rotation) as GameObject;
+    	instance.SendMessage("SetVerticalSpeed", obstacleSpeed);
+    	obstacles.Add(instance);
     }
 
     public static void RemoveObstacle(GameObject obstacle)
@@ -42,4 +44,20 @@ public class SpawnObstacles : MonoBehaviour
         foreach(GameObject obstacle in obstacles) Destroy(obstacle);
     }
     
+    public void SetObstacleSpeed(float s)
+    {
+    	obstacleSpeed = s;
+    }
+    
+    public void SetTimeBetweenSpawns(float t)
+    {
+    	timeBetweenSpawn = t;
+    
+    }
+    
+    public float GetTimeBetweenSpawns()
+    {
+    	return timeBetweenSpawn;
+    }
 }
+

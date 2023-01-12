@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
         else Destroy(this.gameObject);
 
         //Vector3 startingPosition = new Vector3(608.06, -648, 44.125); // or any other desired position
-        character = Instantiate(GlobalData.instance.data.characterStyle, Quaternion.identity);
+        //character = Instantiate(GlobalData.instance.data.characterStyle, Quaternion.identity);
 
         currentHealth = StatFunctions.Health(GlobalData.instance.data.characterLevel); // Follows the HP(lvl) equation
         healthBar.SetMaxHealth(currentHealth);

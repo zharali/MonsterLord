@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-	public float verticalSpeed;
-	public float horizontalSpeed;
+	private float verticalSpeed = -2;
+	private float horizontalSpeed = 0;
 	private Rigidbody2D rb;
 	private Vector2 obstacleDirection;
 	
@@ -40,4 +40,13 @@ public class Obstacle : MonoBehaviour
     {
         SpawnObstacles.RemoveObstacle(this.gameObject);
     }
+    
+    //#region Singleton
+    //public static Obstacle instance;
+    
+    public void SetVerticalSpeed(float s)
+    {
+    	verticalSpeed = s;
+    }  
+    //#endregion
 }

@@ -15,10 +15,11 @@ public class ScoreManager : MonoBehaviour
 	private float xp;
 	public float scoreMultiplier;
 	private uint currentLevel = 1;
-	private uint upLevelScore = 300;
+	private uint upLevelScore = 200;
 	private float gameSpeed = 1f;
 	public MusicManager musicManager;
 	public Scrollingbckgd bg;
+	public SpawnObstacles spawn;
 	
 	void Start()
 	{
@@ -81,11 +82,16 @@ public class ScoreManager : MonoBehaviour
     	//maybe here call boss or something (?)
     	currentLevel += 1;
     	currentLevelText.text = "Lv: " + currentLevel.ToString();
-    	//this function seems alright for the speed progression.
-    	gameSpeed = 1 + (float) Math.Log(currentLevel, 2);
+    	//this function seems alright for the speed progression. starts at speed 2 for level 1
+    	gameSpeed = 2 + (float) Math.Log(currentLevel, 2);
     	//change background music
     	musicManager.PlayNextBGM();
+    	//change background and speed it up
     	bg.NextBg();
+    	bg.SpeedUp();
+    	//speed up enemies and spawn
+    	spawn.SetObstacleSpeed(-gameSpeed);
+    	spawn.SetTimeBetweenSpawns(3/gameSpeed); //3 is original time between spawns
     	
     	//Time.timeScale = gameSpeed; 
     	//better not to touch timeScale, i think it would mess up too many things XD

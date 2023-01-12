@@ -6,6 +6,7 @@ public class Scrollingbckgd : MonoBehaviour
 {
 
     public float bgSpeed;
+    public float speedIncrease;
     public Renderer bgRend;
     public Texture[] bgs;
     public uint currentBg;
@@ -36,6 +37,16 @@ public class Scrollingbckgd : MonoBehaviour
 		Renderer renderer = GetComponent<Renderer>();
     	renderer.material.SetTexture("_MainTex", this.bgs[(currentBg + 1) % (uint) bgs.Length]);
     	currentBg += 1;
+	}
+	
+	public void SetBgSpeed(float s)
+	{
+		bgSpeed = s;
+	}
+	
+	public void SpeedUp()
+	{
+		bgSpeed = bgSpeed + speedIncrease;	
 	}
 
 }

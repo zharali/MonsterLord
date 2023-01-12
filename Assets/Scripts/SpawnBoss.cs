@@ -6,7 +6,7 @@ public class SpawnBoss : MonoBehaviour
 {
     public GameObject bossPrefab;
     public static bool HasBossSpawned = false;
-    private static uint ScoreFrequencyForBoss = 50;
+    private static uint ScoreFrequencyForBoss = 300;
     public ScoreManager ScoreManager;
     private static GameObject boss = null;
     private ulong currentScore;

@@ -3236,7 +3236,6 @@ GameObject:
   - component: {fileID: 693735119}
   - component: {fileID: 693735118}
   - component: {fileID: 693735117}
-  - component: {fileID: 693735120}
   m_Layer: 5
   m_Name: Character1
   m_TagString: Untagged
@@ -3443,22 +3442,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693735115}
   m_CullTransparentMesh: 0
---- !u!114 &693735120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693735115}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04acdcfbe1498d4b8c4b7bf056f7adc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterStyle: {fileID: 0}
-  skinColor: {fileID: 0}
-  eyesStyle: {fileID: 0}
-  mouthStyle: {fileID: 0}
 --- !u!1 &746828204
 GameObject:
   m_ObjectHideFlags: 0
@@ -7426,10 +7409,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04acdcfbe1498d4b8c4b7bf056f7adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterStyle: {fileID: 1971713770}
-  skinColor: {fileID: 1249257321}
-  eyesStyle: {fileID: 1648127244}
-  mouthStyle: {fileID: 1912768216}
+  characterStyle: {fileID: 311447232}
+  skinColor: {fileID: 181924925}
+  eyesStyle: {fileID: 307957540}
+  mouthStyle: {fileID: 1638150258}
 --- !u!1 &1648127244
 GameObject:
   m_ObjectHideFlags: 0

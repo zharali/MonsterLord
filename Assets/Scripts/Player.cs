@@ -48,6 +48,7 @@ public class Player : MonoBehaviour
         // Instantiate the custom character prefab
         SavedData savedData = GlobalData.instance.data;
 
+        GameObject characterStyle = GameObject.Find("characterStyle");
         // Instantiate the character
         character = Instantiate(savedData.characterStyle, new Vector3(0, 0, 0), Quaternion.identity);
 

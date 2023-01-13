@@ -22,9 +22,32 @@ public class ColorButton : MonoBehaviour
     private void Awake()
     {
         colorImage = GetComponent<Image>();
-        redAmount = colorImage.color.r;
-        greenAmount = colorImage.color.g;
-        blueAmount = colorImage.color.b;
+        if (colorImage.color.r == null)
+        {
+            redAmount = 0;
+        }
+        else
+        {
+            redAmount = colorImage.color.r;
+        }
+
+        if (colorImage.color.g == null)
+        {
+            greenAmount = 0;
+        }
+        else
+        {
+            greenAmount = colorImage.color.g;
+        }
+
+        if (colorImage.color.b == null)
+        {
+            blueAmount = 0;
+        }
+        else
+        {
+            blueAmount = colorImage.color.b;
+        }
     }
 
     public void SetSliderValuesToImageColor()

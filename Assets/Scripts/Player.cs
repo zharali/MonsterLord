@@ -45,8 +45,15 @@ public class Player : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(this.gameObject);
 
-        //Vector3 startingPosition = new Vector3(608.06, -648, 44.125); // or any other desired position
-        //character = Instantiate(GlobalData.instance.data.characterStyle, Quaternion.identity);
+        // Instantiate the custom character prefab
+        SavedData savedData = GlobalData.instance.data;
+
+        // Instantiate the character
+        character = Instantiate(savedData.characterStyle, new Vector3(0, 0, 0), Quaternion.identity);
+
+        // Get the renderer component of the character
+        Renderer renderer = character.GetComponent<Renderer>();
+
 
         currentHealth = StatFunctions.Health(GlobalData.instance.data.characterLevel); // Follows the HP(lvl) equation
         healthBar.SetMaxHealth(currentHealth);

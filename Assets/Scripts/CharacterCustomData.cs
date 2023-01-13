@@ -6,25 +6,24 @@ using UnityEditor;
 
 public class CharacterCustomData : MonoBehaviour
 {
+    public GameObject characterStyle;
+    public GameObject skinColor;
+    public GameObject eyesStyle;
+    public GameObject mouthStyle;
 
-    public void SetCharacterStyle(GameObject character)
+    public void OnClick()
     {
-        GlobalData.instance.data.characterStyle = character;
+        SavedData savedData = new SavedData();
+        savedData.characterStyle = characterStyle;
+        savedData.skinColor = skinColor;
+        savedData.eyesStyle = eyesStyle;
+        savedData.mouthStyle = mouthStyle;
+        GlobalData.instance.data = savedData;
+        DataSaver.Save();
     }
 
-    public void SetSkinColor(GameObject skin)
-    {
-        GlobalData.instance.data.skinColor = skin;
-    }
 
-    public void SetEyesStyle(GameObject eyes)
-    {
-        GlobalData.instance.data.eyesStyle = eyes;
-    }
-
-    public void SetMouthStyle(GameObject mouth)
-    {
-        GlobalData.instance.data.mouthStyle = mouth;
-    }
- 
 }
+
+
+

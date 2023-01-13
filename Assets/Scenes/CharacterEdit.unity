@@ -1118,8 +1118,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1642956972}
+      - m_Target: {fileID: 0}
         m_MethodName: CreateData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1642956972}
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1336,18 +1347,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2960389402787064893}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &311447234 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -8191906313157490740, guid: c426d023cdd415c48a57fd80e56eee48,
-    type: 3}
-  m_PrefabInstance: {fileID: 2960389402787064893}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311447232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b04acdcfbe1498d4b8c4b7bf056f7adc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &318736604
 GameObject:
   m_ObjectHideFlags: 0
@@ -3237,6 +3236,7 @@ GameObject:
   - component: {fileID: 693735119}
   - component: {fileID: 693735118}
   - component: {fileID: 693735117}
+  - component: {fileID: 693735120}
   m_Layer: 5
   m_Name: Character1
   m_TagString: Untagged
@@ -3406,17 +3406,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1642956972}
-        m_MethodName: SetCharacterStyle
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 615118146}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &693735118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3454,6 +3443,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693735115}
   m_CullTransparentMesh: 0
+--- !u!114 &693735120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693735115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04acdcfbe1498d4b8c4b7bf056f7adc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterStyle: {fileID: 0}
+  skinColor: {fileID: 0}
+  eyesStyle: {fileID: 0}
+  mouthStyle: {fileID: 0}
 --- !u!1 &746828204
 GameObject:
   m_ObjectHideFlags: 0
@@ -5016,7 +5021,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1642956972}
+        - m_Target: {fileID: 0}
           m_MethodName: SetSkinColor
           m_Mode: 2
           m_Arguments:
@@ -5415,7 +5420,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 311447234}
+      - m_Target: {fileID: 0}
         m_MethodName: SetCharacterStyle
         m_Mode: 2
         m_Arguments:
@@ -7365,6 +7370,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04acdcfbe1498d4b8c4b7bf056f7adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterStyle: {fileID: 0}
+  skinColor: {fileID: 0}
+  eyesStyle: {fileID: 0}
+  mouthStyle: {fileID: 0}
 --- !u!1 &1642956970
 GameObject:
   m_ObjectHideFlags: 0
@@ -7417,6 +7426,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04acdcfbe1498d4b8c4b7bf056f7adc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterStyle: {fileID: 1971713770}
+  skinColor: {fileID: 1249257321}
+  eyesStyle: {fileID: 1648127244}
+  mouthStyle: {fileID: 1912768216}
 --- !u!1 &1648127244
 GameObject:
   m_ObjectHideFlags: 0
@@ -7485,7 +7498,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1642956972}
+        - m_Target: {fileID: 0}
           m_MethodName: SetEyesStyle
           m_Mode: 2
           m_Arguments:
@@ -7811,7 +7824,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 311447234}
+      - m_Target: {fileID: 0}
         m_MethodName: SetCharacterStyle
         m_Mode: 2
         m_Arguments:
@@ -8783,7 +8796,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 311447234}
+      - m_Target: {fileID: 0}
         m_MethodName: SetCharacterStyle
         m_Mode: 2
         m_Arguments:
@@ -9090,7 +9103,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1642956972}
+        - m_Target: {fileID: 0}
           m_MethodName: SetMouthStyle
           m_Mode: 2
           m_Arguments:
@@ -10346,5 +10359,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharactersGameObj
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8191906313157490740, guid: c426d023cdd415c48a57fd80e56eee48, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c426d023cdd415c48a57fd80e56eee48, type: 3}

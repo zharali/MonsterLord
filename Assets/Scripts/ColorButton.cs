@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -48,6 +49,13 @@ public class ColorButton : MonoBehaviour
         {
             blueAmount = colorImage.color.b;
         }
+    }
+
+    public void SaveSkinColor()
+    {
+        GlobalData.instance.data.skinColorR = Convert.ToInt32(redAmount);
+        GlobalData.instance.data.skinColorG = Convert.ToInt32(greenAmount);
+        GlobalData.instance.data.skinColorB = Convert.ToInt32(blueAmount);
     }
 
     public void SetSliderValuesToImageColor()

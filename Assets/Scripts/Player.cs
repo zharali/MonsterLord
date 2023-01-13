@@ -45,16 +45,27 @@ public class Player : MonoBehaviour
         if (instance == null) instance = this;
         else Destroy(this.gameObject);
 
-        // Instantiate the custom character prefab
-        SavedData savedData = GlobalData.instance.data;
+        // TODO : Character apparition
+        // Association between GlobalData.instance.data and which game object to appear
+        // -> 1 = cube_char; 2 = egg_char; 3 = idk_char; 4 = round_char
+        // -> eyes1, eyes2 is explicit
+        // -> mouth1, mouth2, mouth3 is explicit
+        // Skin color has three values : skinColorR, skinColorG, skinColorB
+        Debug.Log(GlobalData.instance.data.characterStyle);
+        Debug.Log(GlobalData.instance.data.mouthStyle);
+        Debug.Log(GlobalData.instance.data.eyesStyle);
+        Debug.Log(GlobalData.instance.data.skinColorR);
+        Debug.Log(GlobalData.instance.data.skinColorG);
+        Debug.Log(GlobalData.instance.data.skinColorB);
 
         GameObject characterStyle = GameObject.Find("characterStyle");
         // Instantiate the character
-        character = Instantiate(savedData.characterStyle, new Vector3(0, 0, 0), Quaternion.identity);
+        //character = Instantiate(savedData.characterStyle, new Vector3(0, 0, 0), Quaternion.identity);
 
         // Get the renderer component of the character
         Renderer renderer = character.GetComponent<Renderer>();
 
+        // ---------------
 
         currentHealth = StatFunctions.Health(GlobalData.instance.data.characterLevel); // Follows the HP(lvl) equation
         healthBar.SetMaxHealth(currentHealth);

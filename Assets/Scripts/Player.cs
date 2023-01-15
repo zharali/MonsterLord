@@ -27,7 +27,12 @@ public class Player : MonoBehaviour
 	private AudioClip microphoneClip;
 	private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
 
-    public GameObject character; 
+    public GameObject character;
+    public GameObject cube_char;
+    public GameObject egg_char;
+    public GameObject idk_char; 
+    public GameObject round_char;
+
 
 
 #if UNITY_STANDALONE
@@ -58,12 +63,52 @@ public class Player : MonoBehaviour
         Debug.Log(GlobalData.instance.data.skinColorG);
         Debug.Log(GlobalData.instance.data.skinColorB);
 
-        GameObject characterStyle = GameObject.Find("characterStyle");
-        // Instantiate the character
-        //character = Instantiate(savedData.characterStyle, new Vector3(0, 0, 0), Quaternion.identity);
+        //get the selected character style
+        GameObject[] characterList = { cube_char, egg_char, idk_char, round_char };
+        int characterStyle = GlobalData.instance.data.characterStyle;
+        GameObject characterSelected = characterList[characterStyle];
 
-        // Get the renderer component of the character
-        Renderer renderer = character.GetComponent<Renderer>();
+        //set the character style
+        switch (GlobalData.instance.data.characterStyle)
+        {
+            case 1:
+                characterSelected = GameObject.Find("cube_char");
+                break;
+            case 2:
+                characterSelected = GameObject.Find("egg_char");
+                break;
+            case 3:
+                characterSelected = GameObject.Find("idk_char");
+                break;
+            case 4:
+                characterSelected = GameObject.Find("round_char");
+                break;
+            default:
+                characterSelected = GameObject.Find("cube_char");
+                break;
+        }
+
+        // Set the character style GameObject to be active
+        characterSelected.SetActive(true);
+
+
+        //set the color 
+        if (characterSelected.TryGetComponent(out Renderer renderer))
+        {
+            // Get the color values from the saved data file
+            float skinColorR = (float)GlobalData.instance.data.skinColorR / 255;
+            float skinColorG = (float)GlobalData.instance.data.skinColorG / 255;
+            float skinColorB = (float)GlobalData.instance.data.skinColorB / 255;
+
+            // Create a new color using the saved color values
+            Color skinColor = new Color(skinColorR, skinColorG, skinColorB);
+
+            // Set the color of the character's skin using the renderer component
+            renderer.material.color = skinColor;
+        }
+
+
+
 
         // ---------------
 

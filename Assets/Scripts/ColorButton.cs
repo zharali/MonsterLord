@@ -22,41 +22,55 @@ public class ColorButton : MonoBehaviour
 
     private void Awake()
     {
-        colorImage = GetComponent<Image>();
-        if (colorImage.color.r == null)
+        GameObject colorImageGO = GameObject.Find("ColorImage");
+        if (colorImageGO != null)
         {
-            redAmount = 0;
+            colorImage = colorImageGO.GetComponent<Image>();
+            if (colorImage == null)
+            {
+                Debug.LogError("No Image component on the GameObject with name 'ColorImage'");
+            }
         }
         else
         {
-            redAmount = colorImage.color.r;
+            Debug.LogError("GameObject with name 'ColorImage' not found in scene.");
         }
 
-        if (colorImage.color.g == null)
+        if (colorImage != null)
         {
-            greenAmount = 0;
-        }
-        else
-        {
-            greenAmount = colorImage.color.g;
-        }
+            if (colorImage.color.r == null)
+            {
+                redAmount = 0;
+            }
+            else
+            {
+                redAmount = colorImage.color.r;
+            }
 
-        if (colorImage.color.b == null)
-        {
-            blueAmount = 0;
+            if (colorImage.color.g == null)
+            {
+                greenAmount = 0;
+            }
+            else
+            {
+                greenAmount = colorImage.color.g;
+            }
+
+            if (colorImage.color.b == null)
+            {
+                blueAmount = 0;
+            }
+            else
+            {
+                blueAmount = colorImage.color.b;
+            }
         }
         else
         {
-            blueAmount = colorImage.color.b;
+            Debug.LogError("colorImage object is not assigned!");
         }
     }
 
-    public void SaveSkinColor()
-    {
-        GlobalData.instance.data.skinColorR = Convert.ToInt32(redAmount);
-        GlobalData.instance.data.skinColorG = Convert.ToInt32(greenAmount);
-        GlobalData.instance.data.skinColorB = Convert.ToInt32(blueAmount);
-    }
 
     public void SetSliderValuesToImageColor()
     {

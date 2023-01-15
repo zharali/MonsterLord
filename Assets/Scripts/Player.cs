@@ -89,6 +89,7 @@ public class Player : MonoBehaviour
         }
 
         // Set the character style GameObject to be active
+       // characterSelected = cube_char; 
         characterSelected.SetActive(true);
 
 

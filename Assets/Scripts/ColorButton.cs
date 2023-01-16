@@ -22,21 +22,26 @@ public class ColorButton : MonoBehaviour
 
     private void Awake()
     {
-        GameObject colorImageGO = GameObject.Find("ColorImage");
-        if (colorImageGO != null)
-        {
-            colorImage = colorImageGO.GetComponent<Image>();
-            if (colorImage == null)
-            {
-                Debug.LogError("No Image component on the GameObject with name 'ColorImage'");
-            }
-        }
-        else
-        {
-            Debug.LogError("GameObject with name 'ColorImage' not found in scene.");
-        }
+        /* GameObject colorImageGO = GameObject.Find("ColorImage");
+         if (colorImageGO != null)
+         {
+             colorImage = colorImageGO.GetComponent<Image>();
+             if (colorImage == null)
+             {
+                 Debug.LogError("No Image component on the GameObject with name 'ColorImage'");
+             }
+         }
+         else
+         {
+             Debug.LogError("GameObject with name 'ColorImage' not found in scene.");
+         }*/
 
-        if (colorImage != null)
+        colorImage = GetComponent<Image>();
+        redAmount = colorImage.color.r;
+        greenAmount = colorImage.color.g;
+        blueAmount = colorImage.color.b;
+
+    /*    if (colorImage != null)
         {
             if (colorImage.color.r == null)
             {
@@ -68,7 +73,7 @@ public class ColorButton : MonoBehaviour
         else
         {
             Debug.LogError("colorImage object is not assigned!");
-        }
+        }*/
     }
 
 

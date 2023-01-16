@@ -220,7 +220,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 0}
+  colorImage: {fileID: 79224435}
 --- !u!114 &79224434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,7 +1606,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 0}
+  colorImage: {fileID: 360116003}
 --- !u!114 &360116002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4644,7 +4644,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 0}
+  colorImage: {fileID: 1114331129}
 --- !u!114 &1114331128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6651,7 +6651,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 1764291918}
+  colorImage: {fileID: 1476457227}
 --- !u!114 &1476457231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9606,7 +9606,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 0}
+  colorImage: {fileID: 1921932043}
 --- !u!114 &1921932042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9873,7 +9873,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 0}
+  colorImage: {fileID: 1944313182}
 --- !u!114 &1944313181
 MonoBehaviour:
   m_ObjectHideFlags: 0

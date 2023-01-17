@@ -7,6 +7,22 @@ public class PauseMenu : MonoBehaviour
 {
 	[SerializeField] GameObject pauseMenu;
 	public MusicManager musicManager;
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            if (Time.timeScale == 0) // If it's already paused
+            {
+				Debug.Log("To the menu scene");
+				Home(0); // To the menu scene
+            } else
+            {
+				Debug.Log("Escape -> pausing the game");
+				Pause();
+            }
+        }
+    }
 	
 	public void Pause()
 	{

@@ -6,6 +6,7 @@ public class SpawnObstacles : MonoBehaviour
 {
 	public GameObject obstacle;
 	private float obstacleSpeed = -2;
+	private int animation = 1;
     private static List<GameObject> obstacles = new List<GameObject>();
 	public float minX;
 	public float maxX;
@@ -31,6 +32,7 @@ public class SpawnObstacles : MonoBehaviour
     	float randomY = Random.Range(minY, maxY);
     	GameObject instance = Instantiate(obstacle, transform.position + new Vector3(randomX, randomY, 0), transform.rotation) as GameObject;
     	instance.SendMessage("SetVerticalSpeed", obstacleSpeed);
+    	instance.SendMessage("ChangeAnimation", animation);
     	obstacles.Add(instance);
     }
 
@@ -47,6 +49,11 @@ public class SpawnObstacles : MonoBehaviour
     public void SetObstacleSpeed(float s)
     {
     	obstacleSpeed = s;
+    }
+    
+    public void SetAnimation(int a)
+    {
+    	animation = a;
     }
     
     public void SetTimeBetweenSpawns(float t)

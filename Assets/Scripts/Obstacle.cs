@@ -8,6 +8,7 @@ public class Obstacle : MonoBehaviour
 	private float horizontalSpeed = 0;
 	private Rigidbody2D rb;
 	private Vector2 obstacleDirection;
+	public Animator animator;
 	
     // Start is called before the first frame update
     void Start()
@@ -41,12 +42,13 @@ public class Obstacle : MonoBehaviour
         SpawnObstacles.RemoveObstacle(this.gameObject);
     }
     
-    //#region Singleton
-    //public static Obstacle instance;
-    
     public void SetVerticalSpeed(float s)
     {
     	verticalSpeed = s;
     }  
-    //#endregion
+    
+    public void ChangeAnimation(int index)
+    {
+    	animator.SetInteger("level", index);
+    }
 }

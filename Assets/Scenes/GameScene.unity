@@ -2501,14 +2501,6 @@ MonoBehaviour:
   sampleWindow: 64
   gameOver: {fileID: 1124241526}
   musicManager: {fileID: 85539700}
-<<<<<<< Updated upstream
-  character: {fileID: 634974985}
-  cube_char: {fileID: 0}
-  egg_char: {fileID: 0}
-  idk_char: {fileID: 0}
-  round_char: {fileID: 0}
-=======
->>>>>>> Stashed changes
 --- !u!50 &771735917
 Rigidbody2D:
   serializedVersion: 4

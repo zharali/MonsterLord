@@ -2590,7 +2590,10 @@ MonoBehaviour:
   gameOver: {fileID: 1124241526}
   musicManager: {fileID: 85539700}
   character: {fileID: 634974985}
-  characterStyles: []
+  cube_char: {fileID: 0}
+  egg_char: {fileID: 0}
+  idk_char: {fileID: 0}
+  round_char: {fileID: 0}
 --- !u!50 &771735917
 Rigidbody2D:
   serializedVersion: 4
@@ -4266,7 +4269,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719700936}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1

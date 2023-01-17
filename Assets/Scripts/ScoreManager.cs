@@ -20,6 +20,7 @@ public class ScoreManager : MonoBehaviour
 	public MusicManager musicManager;
 	public Scrollingbckgd bg;
 	public SpawnObstacles spawn;
+	private float baseSpeed = 2;
 	
 	void Start()
 	{
@@ -83,7 +84,7 @@ public class ScoreManager : MonoBehaviour
     	currentLevel += 1;
     	currentLevelText.text = "Lv: " + currentLevel.ToString();
     	//this function seems alright for the speed progression. starts at speed 2 for level 1
-    	gameSpeed = 2 + (float) Math.Log(currentLevel, 2);
+    	gameSpeed = baseSpeed + (float) Math.Log(currentLevel, 2);
     	//change background music
     	musicManager.PlayNextBGM();
     	//change background and speed it up
@@ -91,7 +92,7 @@ public class ScoreManager : MonoBehaviour
     	bg.SpeedUp();
     	//speed up enemies and spawn
     	spawn.SetObstacleSpeed(-gameSpeed);
-    	spawn.SetTimeBetweenSpawns(3/gameSpeed); //3 is original time between spawns
+    	spawn.SetTimeBetweenSpawns(3/(gameSpeed/baseSpeed)); //3 is original time between spawns
     	
     	//Time.timeScale = gameSpeed; 
     	//better not to touch timeScale, i think it would mess up too many things XD

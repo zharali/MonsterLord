@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     {
         //resume time. gameover was messing this up.
         Time.timeScale = 1f;
+        rb = GetComponent<Rigidbody2D>();
         // Singleton shenanigans
         if (instance == null) instance = this;
         else Destroy(this.gameObject);
@@ -119,7 +120,6 @@ public class Player : MonoBehaviour
         //score = 0; //handled in ScoreManager
         //gameLevel = 1; //handled in LevelManager
         bossBeaten = 0;
-        rb = GetComponent<Rigidbody2D>();
 #if UNITY_STANDALONE
         //for voice recognition
         MicrophoneToAudioClip(); //start the microphone

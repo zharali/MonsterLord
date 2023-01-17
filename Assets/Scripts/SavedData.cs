@@ -11,9 +11,9 @@ public class SavedData
     public ushort spriteId = 0;
     public ulong highscore = 0;
 
-    public int skinColorR;
-    public int skinColorG;
-    public int skinColorB;
+    public float skinColorR;
+    public float skinColorG;
+    public float skinColorB;
 
     public int eyesStyle;    // 1;2
     public int mouthStyle;   // 1;2;3

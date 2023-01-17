@@ -45,9 +45,9 @@ public class SelectColor : MonoBehaviour
 
     public void SaveSkinColor()
     {
-        GlobalData.instance.data.skinColorR = Convert.ToInt32(redAmount);
-        GlobalData.instance.data.skinColorG = Convert.ToInt32(greenAmount);
-        GlobalData.instance.data.skinColorB = Convert.ToInt32(blueAmount);
+        GlobalData.instance.data.skinColorR = redAmount;
+        GlobalData.instance.data.skinColorG = greenAmount;
+        GlobalData.instance.data.skinColorB = blueAmount;
     }
 
 

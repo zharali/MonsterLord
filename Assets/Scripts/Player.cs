@@ -27,13 +27,6 @@ public class Player : MonoBehaviour
 	private AudioClip microphoneClip;
 	private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
 
-    public GameObject character;
-    public GameObject cube_char;
-    public GameObject egg_char;
-    public GameObject idk_char; 
-    public GameObject round_char;
-
-
 
 #if UNITY_STANDALONE
 	private KeywordRecognizer keywordRecognizer;
@@ -65,42 +58,35 @@ public class Player : MonoBehaviour
         Debug.Log(GlobalData.instance.data.skinColorB);
 
         //get the selected character style
-        GameObject[] characterList = { cube_char, egg_char, idk_char, round_char };
+        GameObject characterList = transform.GetChild(0).gameObject.transform.GetChild(2).gameObject;
         int characterStyle = GlobalData.instance.data.characterStyle;
-        GameObject characterSelected = characterList[characterStyle];
-
-        //set the character style
-        switch (GlobalData.instance.data.characterStyle)
-        {
-            case 1:
-                characterSelected = GameObject.Find("cube_char");
-                break;
-            case 2:
-                characterSelected = GameObject.Find("egg_char");
-                break;
-            case 3:
-                characterSelected = GameObject.Find("idk_char");
-                break;
-            case 4:
-                characterSelected = GameObject.Find("round_char");
-                break;
-            default:
-                characterSelected = GameObject.Find("cube_char");
-                break;
-        }
-
+        GameObject characterSelected = characterList.transform.GetChild((characterStyle > 0 && characterStyle <= 4) ? characterStyle - 1 : 0).gameObject;
+        Debug.Log(characterSelected.gameObject.name);
         // Set the character style GameObject to be active
-       // characterSelected = cube_char; 
         characterSelected.SetActive(true);
+
+        //set the selected mouth
+        GameObject mouthList = transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
+        int mouthStyle = GlobalData.instance.data.mouthStyle;
+        GameObject mouthSelected = mouthList.transform.GetChild((mouthStyle > 0 && mouthStyle <= 3) ? mouthStyle - 1 : 0).gameObject;
+        Debug.Log(mouthSelected.gameObject.name);
+        mouthSelected.SetActive(true);
+
+        //set the selected eyes
+        GameObject eyesList = transform.GetChild(0).gameObject.transform.GetChild(1).gameObject;
+        int eyesStyle = GlobalData.instance.data.eyesStyle;
+        GameObject eyesSelected = eyesList.transform.GetChild((eyesStyle > 0 && eyesStyle <= 2) ? eyesStyle - 1 : 0).gameObject;
+        Debug.Log(eyesSelected.gameObject.name);
+        eyesSelected.SetActive(true);
 
 
         //set the color 
         if (characterSelected.TryGetComponent(out Renderer renderer))
         {
             // Get the color values from the saved data file
-            float skinColorR = (float)GlobalData.instance.data.skinColorR / 255;
-            float skinColorG = (float)GlobalData.instance.data.skinColorG / 255;
-            float skinColorB = (float)GlobalData.instance.data.skinColorB / 255;
+            float skinColorR = GlobalData.instance.data.skinColorR;
+            float skinColorG = GlobalData.instance.data.skinColorG;
+            float skinColorB = GlobalData.instance.data.skinColorB;
 
             // Create a new color using the saved color values
             Color skinColor = new Color(skinColorR, skinColorG, skinColorB);
@@ -111,14 +97,13 @@ public class Player : MonoBehaviour
 
 
 
-
         // ---------------
 
         currentHealth = StatFunctions.Health(GlobalData.instance.data.characterLevel); // Follows the HP(lvl) equation
         healthBar.SetMaxHealth(currentHealth);
         atk = StatFunctions.Attack(currentHealth);  // HP(lvl) / number of hits to beat a boss
         //score = 0; //handled in ScoreManager
-        //gameLevel = 1; //handled in LevelManager
+        //gameLevel = 1; //handled in LevelManagers
         bossBeaten = 0;
 #if UNITY_STANDALONE
         //for voice recognition

@@ -220,7 +220,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 79224435}
+  colorImage: {fileID: 0}
 --- !u!114 &79224434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1249257324}
+      - m_Target: {fileID: 79224433}
         m_MethodName: SetSliderValuesToImageColor
         m_Mode: 1
         m_Arguments:
@@ -362,7 +362,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &79224435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1606,7 +1606,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 360116003}
+  colorImage: {fileID: 0}
 --- !u!114 &360116002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1650,7 +1650,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1249257324}
+      - m_Target: {fileID: 360116001}
         m_MethodName: SetSliderValuesToImageColor
         m_Mode: 1
         m_Arguments:
@@ -1748,7 +1748,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &360116003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2201,8 +2201,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -974, y: 159}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -0.000011444, y: 12}
+  m_SizeDelta: {x: 827.5735, y: 305.00916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &431255163
 MonoBehaviour:
@@ -4402,8 +4402,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -10}
-  m_SizeDelta: {x: 160, y: 20}
+  m_AnchoredPosition: {x: -8.1, y: 33.1}
+  m_SizeDelta: {x: 336.2572, y: 106.10388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1002210092
 GameObject:
@@ -4644,7 +4644,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 1114331129}
+  colorImage: {fileID: 0}
 --- !u!114 &1114331128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4688,7 +4688,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1249257324}
+      - m_Target: {fileID: 1114331127}
         m_MethodName: SetSliderValuesToImageColor
         m_Mode: 1
         m_Arguments:
@@ -4786,7 +4786,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &1114331129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4995,8 +4995,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1249257322}
   - component: {fileID: 1249257323}
-  - component: {fileID: 1249257324}
-  - component: {fileID: 1249257325}
   m_Layer: 5
   m_Name: Color
   m_TagString: Untagged
@@ -5049,54 +5047,6 @@ MonoBehaviour:
   - {fileID: 26021311}
   - {fileID: 591898204}
   - {fileID: 1174986660}
---- !u!114 &1249257324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249257321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 827804178ef2c874ea2b25254e442fff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectColor: {fileID: 0}
-  redAmount: 0
-  greenAmount: 0
-  blueAmount: 0
-  redSlider: {fileID: 987893851}
-  greenSlider: {fileID: 1626831795}
-  blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 1764291918}
---- !u!114 &1249257325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249257321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 9
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_MethodName: SetSkinColor
-          m_Mode: 2
-          m_Arguments:
-            m_ObjectArgument: {fileID: 1249257321}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1262956795
 GameObject:
   m_ObjectHideFlags: 0
@@ -5267,7 +5217,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1249257324}
+      - m_Target: {fileID: 1249257323}
         m_MethodName: SaveSkinColor
         m_Mode: 1
         m_Arguments:
@@ -6477,7 +6427,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1249257324}
+      - m_Target: {fileID: 1476457230}
         m_MethodName: SetSliderValuesToImageColor
         m_Mode: 1
         m_Arguments:
@@ -6575,7 +6525,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &1476457227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6651,7 +6601,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 1476457227}
+  colorImage: {fileID: 0}
 --- !u!114 &1476457231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6710,7 +6660,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1642956971}
-  - {fileID: 1845433918}
   m_Father: {fileID: 945203744}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8290,80 +8239,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754129652}
   m_CullTransparentMesh: 0
---- !u!1 &1764291916
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1764291917}
-  - component: {fileID: 1764291919}
-  - component: {fileID: 1764291918}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1764291917
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764291916}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1845433918}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1764291918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764291916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1764291919
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764291916}
-  m_CullTransparentMesh: 0
 --- !u!1 &1790148677
 GameObject:
   m_ObjectHideFlags: 0
@@ -8771,42 +8646,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844080401}
   m_CullTransparentMesh: 0
---- !u!1 &1845433917
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1845433918}
-  m_Layer: 5
-  m_Name: ColorImage
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1845433918
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845433917}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1764291917}
-  m_Father: {fileID: 1492444198}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1845504041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2854837939628483195, guid: ea7bce69fb4855b41a770f05c782fb5b,
@@ -9606,7 +9445,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 1921932043}
+  colorImage: {fileID: 0}
 --- !u!114 &1921932042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9650,7 +9489,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1249257324}
+      - m_Target: {fileID: 1921932041}
         m_MethodName: SetSliderValuesToImageColor
         m_Mode: 1
         m_Arguments:
@@ -9748,7 +9587,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &1921932043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9873,7 +9712,7 @@ MonoBehaviour:
   redSlider: {fileID: 987893851}
   greenSlider: {fileID: 1626831795}
   blueSlider: {fileID: 1976303970}
-  colorImage: {fileID: 1944313182}
+  colorImage: {fileID: 0}
 --- !u!114 &1944313181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9917,7 +9756,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1249257324}
+      - m_Target: {fileID: 1944313180}
         m_MethodName: SetSliderValuesToImageColor
         m_Mode: 1
         m_Arguments:
@@ -10015,7 +9854,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &1944313182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10419,6 +10258,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2848215166226016621, guid: e283335581a403e488e7097099a7daac,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e283335581a403e488e7097099a7daac, type: 3}
 --- !u!1001 &2854837941406861906
@@ -10428,6 +10272,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 383748665}
     m_Modifications:
+    - target: {fileID: 2854837939628483195, guid: ea7bce69fb4855b41a770f05c782fb5b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2854837941703148918, guid: ea7bce69fb4855b41a770f05c782fb5b,
         type: 3}
       propertyPath: m_Name
@@ -10556,6 +10405,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CharactersGameObj
+      objectReference: {fileID: 0}
+    - target: {fileID: 2960389403246975359, guid: c426d023cdd415c48a57fd80e56eee48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -8191906313157490740, guid: c426d023cdd415c48a57fd80e56eee48, type: 3}

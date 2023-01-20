@@ -19,6 +19,9 @@ public class CharacterCustomData : MonoBehaviour
 
     public void OnClick()
     {
+        Debug.Log(characterStyleID);
+        Debug.Log(eyesStyleID);
+        Debug.Log(mouthStyleID);
         //SavedData savedData = new SavedData();
         GlobalData.instance.data.characterStyle = characterStyleID;
         // Color is already saved 
@@ -26,6 +29,8 @@ public class CharacterCustomData : MonoBehaviour
         GlobalData.instance.data.mouthStyle = mouthStyleID;
         //GlobalData.instance.data = savedData;
         //DataSaver.Save();
+
+
     }
 }
 

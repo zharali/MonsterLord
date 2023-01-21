@@ -15,7 +15,7 @@ public class SavedData
     public float skinColorG;
     public float skinColorB;
 
-    public int eyesStyle;    // 1;2
+    public int eyesStyle;    // 1;2;3;4
     public int mouthStyle;   // 1;2;3
     public int characterStyle; // 1;2;3;4
 

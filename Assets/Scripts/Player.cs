@@ -75,7 +75,7 @@ public class Player : MonoBehaviour
         //set the selected eyes
         GameObject eyesList = transform.GetChild(0).gameObject.transform.GetChild(1).gameObject;
         int eyesStyle = GlobalData.instance.data.eyesStyle;
-        GameObject eyesSelected = eyesList.transform.GetChild((eyesStyle > 0 && eyesStyle <= 2) ? eyesStyle - 1 : 0).gameObject;
+        GameObject eyesSelected = eyesList.transform.GetChild((eyesStyle > 0 && eyesStyle <= 4) ? eyesStyle - 1 : 0).gameObject;
         Debug.Log(eyesSelected.gameObject.name);
         eyesSelected.SetActive(true);
 

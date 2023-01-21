@@ -25,14 +25,14 @@ public class RandomCharacter : MonoBehaviour //select character charasteristics 
         GameObject eyesList = transform.GetChild(2).gameObject.transform.GetChild(0).gameObject;
         GameObject mouthList = transform.GetChild(3).gameObject.transform.GetChild(0).gameObject;
 
-        int character = UnityEngine.Random.Range(0, 4);
-        int eyes = UnityEngine.Random.Range(0, 2);
-        int mouth = UnityEngine.Random.Range(0, 3);
+        int character = UnityEngine.Random.Range(0, 5);
+        int eyes = UnityEngine.Random.Range(0, 5);
+        int mouth = UnityEngine.Random.Range(0, 4);
 
         //select a random characteristic from the lists
         Button rdmCharacter = characterList.transform.GetChild((character > 0 && character <= 4) ? character - 1 : 0).gameObject.GetComponent<Button>();
         Debug.Log(rdmCharacter.gameObject.name);
-        Button rdmEyes = eyesList.transform.GetChild((eyes > 0 && eyes <= 2) ? eyes - 1 : 0).gameObject.GetComponent<Button>();
+        Button rdmEyes = eyesList.transform.GetChild((eyes > 0 && eyes <= 4) ? eyes - 1 : 0).gameObject.GetComponent<Button>();
         Debug.Log(rdmEyes.gameObject.name);
         Button rdmMouth = mouthList.transform.GetChild((mouth > 0 && mouth <= 3) ? mouth - 1 : 0).gameObject.GetComponent<Button>();
         Debug.Log(rdmMouth.gameObject.name);
@@ -49,10 +49,16 @@ public class RandomCharacter : MonoBehaviour //select character charasteristics 
         float[] black = { 0, 0, 0 };
         float[] pink = { 0.9811321f, 0.3008188f, 0.716f };
         float[] white = { 1, 1, 1 };
+        float[] orange = { 1, 0.5102247f, 0 };
+        float[] lavender = { 0.6493772f, 0.3737985f, 0.754717f };
+        float[] skyblue = { 0, 0.7673926f, 1 };
+        float[] brown = { 0.4528302f, 0.08738429f, 0 };
+        float[] yellow = { 0.9370375f, 1, 0.1556604f };
+        float[] grey = { 0.3584906f, 0.3584906f, 0.3584906f };
 
-        float[][] color = { red, green, blue, black, pink, white };
+        float[][] color = { red, green, blue, black, pink, white, orange, lavender, skyblue, brown, yellow, grey };
 
-        float[] rdmColor = color[UnityEngine.Random.Range(0, 5)];
+        float[] rdmColor = color[UnityEngine.Random.Range(0, 11)];
 
         redAmount = rdmColor[0];
         Debug.Log(redAmount);

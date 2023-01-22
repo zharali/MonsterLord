@@ -11,18 +11,18 @@ public class Boss : MonoBehaviour
     public ulong bossDefeatedScore = 10;  // Also modify Boss prefab
 
     public HealthBar bossBar;
-    public HealthBar timerBar; // Not really a health bar but has the same properties
+    public TimerBar timerBar; // Not really a health bar but has the same properties
 
     // Start is called before the first frame update
     void Start()
     {
-        timer = 5; // seconds
+        timer = 15; // seconds
         level = Player.instance.bossBeaten + 1;
         currentHealth = StatFunctions.BossHealth(level);
         bossBar = Instantiate(bossBar, GameObject.Find("UI").transform);
         bossBar.SetMaxHealth(currentHealth);
         timerBar = Instantiate(timerBar, GameObject.Find("UI").transform);
-        timerBar.SetMaxHealth((long)timer);
+        timerBar.SetMaxTime((int)timer);
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class Boss : MonoBehaviour
         if (timer > 0)
         {
             timer -= Time.deltaTime;
-            timerBar.SetHealth((long)timer);
+            timerBar.SetTime((int)timer);
             // TODO : decreate the timer bar
         } else  // end of the timer, we kill the character
         {

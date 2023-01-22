@@ -50,7 +50,7 @@ MonoBehaviour:
   currentHealth: 0
   bossDefeatedScore: 10
   bossBar: {fileID: 420749067468813217, guid: 4f1000a5ef31b1b44b4725b4c66b029a, type: 3}
-  timerBar: {fileID: 8783828626787797109, guid: 730e4686fb1a7e947848159516dbb9c5,
+  timerBar: {fileID: 1581509493154605675, guid: 730e4686fb1a7e947848159516dbb9c5,
     type: 3}
 --- !u!50 &4290323505436056071
 Rigidbody2D:

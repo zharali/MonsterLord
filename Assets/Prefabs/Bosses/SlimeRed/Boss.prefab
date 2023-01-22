@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7149890610650995838}
   - component: {fileID: 4290323505436056071}
   - component: {fileID: 4595239382438388182}
+  - component: {fileID: 6774465176058495276}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -123,3 +124,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6774465176058495276
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852977194382444302}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c79bf3f1b9b64cbbc99bcfd9b73ea68e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

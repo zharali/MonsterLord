@@ -10,8 +10,13 @@ public class BackGestureInMain : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Escape))
         {
-            Debug.Log("Quitting application");
-            Application.Quit();
+            QuitApplication();
         }
+    }
+
+    public void QuitApplication()
+    {
+        Debug.Log("Quitting application");
+        Application.Quit();
     }
 }

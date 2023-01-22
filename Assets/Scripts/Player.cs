@@ -208,7 +208,24 @@ public class Player : MonoBehaviour
 #endif
     void FixedUpdate()
     {
-    	rb.velocity = new Vector2(playerDirection.x * playerSpeed , 0);
+        #if UNITY_ANDROID
+        if (Input.touchCount > 0 && !(SpawnBoss.HasBossSpawned && Time.timeScale != 0f))
+        {
+            Touch touch = Input.GetTouch(0);
+            playerDirection.x = (touch.position.x > Screen.width / 2) ? 1 : -1;
+            //if (Input.GetTouch(0).position.x < Screen.width / 2)
+            //{
+            //    playerDirection.x = -1.0f;
+            //} else
+            //{
+            //    playerDirection.x = 1.0f;
+            //}
+        } else
+        {
+            playerDirection.x = 0.0f;
+        }
+        #endif
+        rb.velocity = new Vector2(playerDirection.x * playerSpeed , 0);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)

@@ -1364,8 +1364,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b4bcd5e2d542a4786848343075ba43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossPrefab: {fileID: 8852977194382444302, guid: 40ef34d8db98db54d9af99222f007d3f,
-    type: 3}
+  bossPrefabs:
+  - {fileID: 8852977194382444302, guid: faac1a1451a3a774c9e7e9930b1638e0, type: 3}
+  - {fileID: 8852977194382444302, guid: 4af4f3ae82290654696a37c82898a022, type: 3}
+  - {fileID: 8852977194382444302, guid: ca0f157be14ab2ee1baae0208ecfb44c, type: 3}
+  - {fileID: 8852977194382444302, guid: 933b3652cc1eb837ea04e2a2f0cd51b9, type: 3}
+  - {fileID: 8852977194382444302, guid: 918eed2c0318b9c6a933c523b954bd34, type: 3}
   ScoreManager: {fileID: 1261853528}
 --- !u!1 &328314223
 GameObject:
@@ -4757,7 +4761,7 @@ PrefabInstance:
     - target: {fileID: 3200969814135974344, guid: 0a0e1c667ee59f44ea4ce49746b2182c,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 40
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 3200969814135974344, guid: 0a0e1c667ee59f44ea4ce49746b2182c,
         type: 3}

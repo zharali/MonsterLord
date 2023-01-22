@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class SpawnBoss : MonoBehaviour
 {
-    public GameObject bossPrefab;
+    public GameObject[] bossPrefabs;
     public static bool HasBossSpawned = false;
-    private static uint ScoreFrequencyForBoss = 300;
+    private static uint ScoreFrequencyForBoss = 30;
     public ScoreManager ScoreManager;
     private static GameObject boss = null;
     private ulong currentScore;
@@ -25,7 +25,7 @@ public class SpawnBoss : MonoBehaviour
 
     void Spawn()
     {
-        boss = Instantiate(bossPrefab, transform.position + new Vector3(0, 3, 0), transform.rotation);
+        boss = Instantiate(bossPrefabs[Player.instance.bossBeaten % bossPrefabs.Length], transform.position + new Vector3(0, 3, 0), transform.rotation);
         HasBossSpawned = true;
     }
 

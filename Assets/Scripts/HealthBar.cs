@@ -8,6 +8,11 @@ public class HealthBar : MonoBehaviour
 
 	public Slider slider;
 	public Text number;
+    
+    void Start()
+    {
+    	number.fontSize = 80;
+    }
 	
     
 	public void SetMaxHealth(long health)

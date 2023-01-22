@@ -1333,6 +1333,7 @@ MonoBehaviour:
   - {fileID: 3730803509274913480, guid: 63d5374b02e6a0ce4beacfe3f4902118, type: 3}
   - {fileID: 3730803509274913480, guid: 00da12613a4d6dd51837c3f88764d910, type: 3}
   - {fileID: 3730803509274913480, guid: bca8d4cdb2fbfc741a7b0ecee0392c69, type: 3}
+  - {fileID: 3730803509274913480, guid: 131f1c6910526cdf39187355d068f833, type: 3}
   minX: -2
   maxX: 2
   minY: 6

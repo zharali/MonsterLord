@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Scrollingbckgd : MonoBehaviour
 {
 
-    public float bgSpeed;
-    public float speedIncrease;
+    private float bgSpeed;
+    public float baseSpeed;
     public Renderer bgRend;
     public Texture[] bgs;
     public uint currentBg;
@@ -16,6 +17,7 @@ public class Scrollingbckgd : MonoBehaviour
     {
         SetBg(0);
         currentBg = 0;
+        bgSpeed = baseSpeed;
     }
 
     // Update is called once per frame
@@ -39,14 +41,14 @@ public class Scrollingbckgd : MonoBehaviour
     	currentBg += 1;
 	}
 	
-	public void SetBgSpeed(float s)
+	public void SetSpeed(float s)
 	{
 		bgSpeed = s;
 	}
 	
-	public void SpeedUp()
+	public void SpeedUp(uint currentLevel)
 	{
-		bgSpeed = bgSpeed + speedIncrease;	
+		bgSpeed = bgSpeed + (float) 0.3;
 	}
 
 }

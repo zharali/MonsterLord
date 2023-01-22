@@ -1965,6 +1965,11 @@ PrefabInstance:
       propertyPath: bgs.Array.data[1]
       value: 
       objectReference: {fileID: 2800000, guid: 48686046cb0303cc69cde9c6a580316f, type: 3}
+    - target: {fileID: 3298883973373815384, guid: eb258c12f5b4474c9bf7bef1de72b4a1,
+        type: 3}
+      propertyPath: baseSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3298883973373815387, guid: eb258c12f5b4474c9bf7bef1de72b4a1,
         type: 3}
       propertyPath: m_LocalPosition.x

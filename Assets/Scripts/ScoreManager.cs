@@ -89,7 +89,7 @@ public class ScoreManager : MonoBehaviour
     	musicManager.PlayNextBGM();
     	//change background and speed it up
     	bg.NextBg();
-    	bg.SpeedUp();
+    	bg.SetSpeed((float) 0.4 * gameSpeed/baseSpeed - (float) 0.2);
     	//speed up enemies and spawn
     	spawn.SetObstacleSpeed(-gameSpeed);
     	spawn.SetTimeBetweenSpawns(3/(gameSpeed/baseSpeed)); //3 is original time between spawns

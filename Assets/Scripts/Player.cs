@@ -43,6 +43,13 @@ public class Player : MonoBehaviour
         // Singleton shenanigans
         if (instance == null) instance = this;
         else Destroy(this.gameObject);
+        
+        currentHealth = StatFunctions.Health(GlobalData.instance.data.characterLevel); // Follows the HP(lvl) equation
+        healthBar.SetMaxHealth(currentHealth);
+        atk = StatFunctions.Attack(currentHealth);  // HP(lvl) / number of hits to beat a boss
+        //score = 0; //handled in ScoreManager
+        //gameLevel = 1; //handled in LevelManagers
+        bossBeaten = 0;
 
         // TODO : Character apparition
         // Association between GlobalData.instance.data and which game object to appear
@@ -99,12 +106,7 @@ public class Player : MonoBehaviour
 
         // ---------------
 
-        currentHealth = StatFunctions.Health(GlobalData.instance.data.characterLevel); // Follows the HP(lvl) equation
-        healthBar.SetMaxHealth(currentHealth);
-        atk = StatFunctions.Attack(currentHealth);  // HP(lvl) / number of hits to beat a boss
-        //score = 0; //handled in ScoreManager
-        //gameLevel = 1; //handled in LevelManagers
-        bossBeaten = 0;
+        
 #if UNITY_STANDALONE
         //for voice recognition
         MicrophoneToAudioClip(); //start the microphone

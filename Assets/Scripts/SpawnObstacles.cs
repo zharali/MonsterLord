@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SpawnObstacles : MonoBehaviour
 {
-	public GameObject obstacle;
-	private float obstacleSpeed = -2;
+	public GameObject[] obstacleDesigns;
 	private int animation = 1;
+	private float obstacleSpeed = -2;
     private static List<GameObject> obstacles = new List<GameObject>();
 	public float minX;
 	public float maxX;
@@ -15,6 +16,17 @@ public class SpawnObstacles : MonoBehaviour
 	private float timeBetweenSpawn = 3;
 	private float spawnTime;
 
+
+	/*void Start()
+	{
+		for (int i = 0; i < obstacleDesigns.Length; i++) 
+		{
+			obstacleDesigns[i].SetVerticalSpeed(-(2 + (float) Math.Log(i, 2)));		
+		}
+	
+	}*/
+	
+	
     // Update is called once per frame
     void Update()
     {
@@ -28,11 +40,12 @@ public class SpawnObstacles : MonoBehaviour
     
     void Spawn()
     {
-    	float randomX = Random.Range(minX, maxX);
-    	float randomY = Random.Range(minY, maxY);
-    	GameObject instance = Instantiate(obstacle, transform.position + new Vector3(randomX, randomY, 0), transform.rotation) as GameObject;
+    	float randomX = UnityEngine.Random.Range(minX, maxX);
+    	float randomY = UnityEngine.Random.Range(minY, maxY);
+    	GameObject instance = Instantiate(obstacleDesigns[(animation-1)%obstacleDesigns.Length], transform.position + new Vector3(randomX, randomY, 0), transform.rotation) as GameObject;
     	instance.SendMessage("SetVerticalSpeed", obstacleSpeed);
-    	instance.SendMessage("ChangeAnimation", animation);
+    	//instance.SendMessage("ChangeAnimation", animation);
+    	//Debug.Log("obstacle animation: "+ animation.ToString());
     	obstacles.Add(instance);
     }
 

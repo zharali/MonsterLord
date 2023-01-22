@@ -250,6 +250,7 @@ public class Player : MonoBehaviour
         // Death condition - End game
         if (currentHealth <= 0)
         {
+        	healthBar.SetHealth(0);
             // Display GAME OVER panel: GameOver class does this.
             gameOver.ShowGameOver();
             // Transform the score into xp for our character

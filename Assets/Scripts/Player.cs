@@ -152,8 +152,6 @@ public class Player : MonoBehaviour
                 SpawnBoss.GetBossInstance().TakeDamage((long)atk);
             }
 #endif
-        } else
-        {
         }
     }
     public void MicrophoneToAudioClip()

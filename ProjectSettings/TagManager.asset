@@ -15,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Mouth
   - 
   - Enemies
   - 
@@ -51,6 +51,12 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3493682761
+    locked: 0
+  - name: Eyes
+    uniqueID: 3847597215
+    locked: 0
+  - name: Mouth
+    uniqueID: 3175193503
     locked: 0
   - name: Interface Background
     uniqueID: 2236294329

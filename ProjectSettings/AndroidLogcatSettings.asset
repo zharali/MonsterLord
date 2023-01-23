@@ -10,24 +10,6 @@
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "275f59d3",
-            "name": "com.android.launcher3",
-            "processId": 12519,
-            "exited": false
-        },
-        {
-            "deviceId": "275f59d3",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 7991,
-            "exited": true
-        },
-        {
-            "deviceId": "275f59d3",
-            "name": "com.DefaultCompany.com.unity.template.mobile2D",
-            "processId": 8115,
-            "exited": true
-        },
-        {
-            "deviceId": "275f59d3",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 12073,
             "exited": true
@@ -42,7 +24,7 @@
             "deviceId": "275f59d3",
             "name": "com.aliucord",
             "processId": 10216,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "275f59d3",
@@ -54,6 +36,12 @@
             "deviceId": "275f59d3",
             "name": "com.DefaultCompany.com.unity.template.mobile2D",
             "processId": 24219,
+            "exited": true
+        },
+        {
+            "deviceId": "275f59d3",
+            "name": "jp.naver.line.android",
+            "processId": 2572,
             "exited": false
         }
     ],

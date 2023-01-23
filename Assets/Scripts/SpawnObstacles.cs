@@ -13,7 +13,8 @@ public class SpawnObstacles : MonoBehaviour
 	public float maxX;
 	public float minY;
 	public float maxY;
-	private float timeBetweenSpawn = 3;
+	private float originalSpawn = 2;
+	private float timeBetweenSpawn = 2;
 	private float spawnTime;
 
 
@@ -78,6 +79,11 @@ public class SpawnObstacles : MonoBehaviour
     public float GetTimeBetweenSpawns()
     {
     	return timeBetweenSpawn;
+    }
+    
+    public float GetOriginalSpawn()
+    {
+    	return originalSpawn;
     }
 }
 

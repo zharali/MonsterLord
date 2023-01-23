@@ -9,7 +9,8 @@ using UnityEngine.Windows.Speech;
 public class Player : MonoBehaviour
 {
 
-	public float playerSpeed;
+	private float playerSpeed = 0.5f;
+	private float loudness;
 	//public int maxHealth; //could be used for healing items/events.
 	public long currentHealth;
     public ulong atk;
@@ -107,9 +108,11 @@ public class Player : MonoBehaviour
         // ---------------
 
         
-#if UNITY_STANDALONE
         //for voice recognition
         MicrophoneToAudioClip(); //start the microphone
+        
+#if UNITY_STANDALONE
+        /*
         keywordActions.Add("left", MoveLeft); //add words and methods to dictionary
         keywordActions.Add("right", MoveRight);
         
@@ -121,7 +124,7 @@ public class Player : MonoBehaviour
     	{
         	Debug.Log("Name: " + device);
     	}
-    	/*
+    	
     	var audio = GetComponent< AudioSource > ();
 		audio.clip = Microphone.Start("Default Input Device", true, 10, 44100);
 		audio.loop = true;
@@ -151,12 +154,8 @@ public class Player : MonoBehaviour
 #endif
         } else
         {
-            // Not moving vertically, only horizontally (could change in the future?).
-            float directionX = Input.GetAxisRaw("Horizontal");
-            playerDirection = new Vector2(directionX, 0).normalized;
         }
     }
-#if UNITY_STANDALONE
     public void MicrophoneToAudioClip()
     {
     	string microphoneName = Microphone.devices[0];
@@ -184,15 +183,17 @@ public class Player : MonoBehaviour
     	return totalLoudness / sampleWindow;
     }
     
+    /* used for voice controls...
     private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
     {
     	Debug.Log("Keyword: " + args.text);
     	keywordActions[args.text].Invoke();
     }
+    */
     
     void MoveLeft()
     {
-    	float loudness = GetLoudnessFromMicrophone();
+    	loudness = GetLoudnessFromMicrophone();
     	//Debug.Log(loudness);
         playerDirection = new Vector2(-1, 0).normalized * loudness;
     	
@@ -200,19 +201,25 @@ public class Player : MonoBehaviour
     
     void MoveRight()
     {
-    	float loudness = GetLoudnessFromMicrophone();
+    	loudness = GetLoudnessFromMicrophone();
     	//Debug.Log(loudness);
         playerDirection = new Vector2(1, 0).normalized * loudness;
     
     }
-#endif
+    
     void FixedUpdate()
     {
-        #if UNITY_ANDROID
-        if (Input.touchCount > 0 && !(SpawnBoss.HasBossSpawned && Time.timeScale != 0f))
+        if (/*Input.touchCount > 0 && */!(SpawnBoss.HasBossSpawned && Time.timeScale != 0f))
         {
-            Touch touch = Input.GetTouch(0);
-            playerDirection.x = (touch.position.x > Screen.width / 2) ? 1 : -1;
+            //Touch touch = Input.GetTouch(0);
+            // Not moving vertically, only horizontally (could change in the future?).
+#if UNITY_STANDALONE
+            float directionX = Input.GetAxisRaw("Horizontal");
+#elif UNITY_ANDROID
+            float directionX = Input.acceleration.x;
+#endif
+			playerDirection.x = directionX;
+            //playerDirection = new Vector2(directionX, 0);//.normalized; //(touch.position.x > Screen.width / 2) ? 1 : -1;
             //if (Input.GetTouch(0).position.x < Screen.width / 2)
             //{
             //    playerDirection.x = -1.0f;
@@ -224,8 +231,10 @@ public class Player : MonoBehaviour
         {
             playerDirection.x = 0.0f;
         }
-        #endif
-        rb.velocity = new Vector2(playerDirection.x * playerSpeed , 0);
+        
+    	loudness = GetLoudnessFromMicrophone() * 85f;
+    	//Debug.Log("loudness: " + loudness.ToString());
+        rb.velocity = new Vector2(playerDirection.x * (playerSpeed + loudness) , 0);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)

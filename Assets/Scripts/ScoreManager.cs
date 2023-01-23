@@ -92,7 +92,7 @@ public class ScoreManager : MonoBehaviour
     	bg.SetSpeed((float) 0.4 * gameSpeed/baseSpeed - (float) 0.2);
     	//speed up enemies and spawn
     	spawn.SetObstacleSpeed(-gameSpeed);
-    	spawn.SetTimeBetweenSpawns(3/(gameSpeed/baseSpeed)); //3 is original time between spawns
+    	spawn.SetTimeBetweenSpawns(spawn.GetOriginalSpawn()/(gameSpeed/baseSpeed)); //2 is original time between spawns
     	spawn.SetAnimation((int)currentLevel);
     	
     	//Time.timeScale = gameSpeed; 

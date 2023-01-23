@@ -2577,7 +2577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c8f20fa361fd1936953727f3b5ae47b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 10
+  playerSpeed: 0.1
   currentHealth: 0
   atk: 0
   scoreManager: {fileID: 1261853528}
